@@ -4,7 +4,7 @@ const db = require("./models");
 const app = express();
 
 const corsOptions = {
-	origin: "http://localhost:8080",
+	origin: "http://localhost:3000",
 };
 
 app.use(cors(corsOptions));
@@ -15,6 +15,8 @@ db.sequelize.sync();
 
 require("./routes/auth")(app);
 require("./routes/user")(app);
+require("./routes/quiz")(app);
+
 // simple route
 app.get("/", (req, res) => {
 	res.json({ message: "Welcome to mini quiz apps." });

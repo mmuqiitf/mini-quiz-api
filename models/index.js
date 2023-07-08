@@ -50,6 +50,21 @@ db.question = require("./question")(sequelize, Sequelize);
 db.answer = require("./answer")(sequelize, Sequelize);
 db.respondent = require("./respondent")(sequelize, Sequelize);
 
+db.quiz.hasMany(db.question, {
+	foreignKey: "quizId",
+	as: "questions",
+});
+
+db.question.belongsTo(db.quiz, {
+	foreignKey: "quizId",
+	as: "quizzes",
+});
+
+db.question.hasMany(db.answer, {
+	foreignKey: "questionId",
+	as: "answers",
+});
+
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 

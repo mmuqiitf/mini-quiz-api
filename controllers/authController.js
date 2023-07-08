@@ -2,8 +2,8 @@ const db = require("../models");
 const User = db.user;
 const secret = process.env.JWT_SECRET;
 
-var jwt = require("jsonwebtoken");
-var bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
+const bcrypt = require("bcryptjs");
 
 exports.signup = (req, res) => {
 	// Save User to Database
